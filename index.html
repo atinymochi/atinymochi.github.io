@@ -3,301 +3,85 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon-16x16.png">
 
-    <title>PEWMA Clinic Home | Atención de Enfermería Domiciliaria</title>
+    <title>
+        PEWMA Clinic Home | Atención de Enfermería Domiciliaria en Santiago
+    </title>
 
-    <!-- Bootstrap -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <meta name="description"
+          content="PEWMA Clinic Home ofrece atención profesional de enfermería domiciliaria en Santiago. Curaciones, administración de medicamentos, manejo de dispositivos invasivos, toma de exámenes y más.">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta name="keywords"
+          content="enfermería domiciliaria, atención domiciliaria, curaciones, administración de medicamentos, toma de exámenes, Santiago">
+
+    <meta name="author"
+          content="PEWMA Clinic Home">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="format-detection"
+          content="telephone=no">
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/png"
+          href="images/favicon-16x16.png">
 
     <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="css/bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="css/font-awesome.css">
+
+    <!-- Animations -->
+    <link rel="stylesheet"
+          href="css/animations.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="css/main.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet"
+          href="css/custom-responsive.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
-
+<div class="header-top">
     <div class="container">
-
-        <a class="navbar-brand" href="#">
-            <img src="images/logo.jpeg" alt="PEWMA Clinic Home" height="100">
-        </a>
-
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#inicio">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#servicios">Servicios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#nosotros">Nosotros</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#cobertura">Cobertura</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#reserva">Reserva</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#contacto">Contacto</a>
-                </li>
-
-                <li class="nav-item ms-lg-3">
-                    <a href="https://wa.me/569XXXXXXXX"
-                       target="_blank"
-                       class="btn btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</nav>
-
-<!-- HERO -->
-<section id="inicio" class="hero">
-
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-content">
-
         <div class="row align-items-center">
-
-            <div class="col-lg-7">
-
-                <span class="hero-badge">
-                    Atención de Enfermería Domiciliaria
-                </span>
-
-                <h1>
-                    Cuidamos tu salud donde más importa:
-                    <span>tu hogar</span>
-                </h1>
-
-                <p>
-                    Atención profesional, segura y humanizada para pacientes
-                    y familias que requieren cuidados de enfermería en la
-                    comodidad de su hogar.
+            <div class="col-md-6">
+                <p class="top-message">
+                    Cuidamos tu salud donde más importa: tu hogar.
                 </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#reserva"
-                       class="btn btn-primary-custom">
-
-                        Solicitar Atención
-
+            </div>
+            <div class="col-md-6 text-end">
+                <p class="top-contact">
+                    <i class="fa fa-whatsapp"></i>
+                    <a href="https://wa.me/56988201833"
+                       target="_blank">
+                        +56 9 8820 1833
                     </a>
-
-                    <a href="https://wa.me/569XXXXXXXX"
-                       target="_blank"
-                       class="btn btn-secondary-custom">
-
-                        WhatsApp
-
-                    </a>
-
-                </div>
-
+                </p>
             </div>
-
-            <div class="col-lg-5 text-center">
-
-                <div class="hero-card">
-
-                    <i class="fa-solid fa-house-medical-circle-check"></i>
-
-                    <h4>Atención en Santiago</h4>
-
-                    <p>
-                        Servicio profesional de enfermería domiciliaria
-                        con atención personalizada.
-                    </p>
-
-                </div>
-
-            </div>
-
         </div>
-
     </div>
-
-</section>
-
-<!-- NOSOTROS -->
-<section id="nosotros" class="section-padding">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            ¿Quiénes Somos?
-        </h2>
-
-        <p class="text-center">
-            PEWMA Clinic Home brinda atención de enfermería
-            domiciliaria integral, acercando servicios de salud
-            de calidad al hogar de nuestros pacientes mediante
-            una atención profesional, segura y centrada en la persona.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" class="section-padding bg-light">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            Nuestros Servicios
-        </h2>
-
-        <div class="row g-4">
-
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fa-solid fa-vial-circle-check"></i>
-                    <h4>Toma de Exámenes</h4>
-                    <p>Exámenes domiciliarios realizados por profesionales.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <h4>Curaciones</h4>
-                    <p>Curaciones simples y avanzadas.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fa-solid fa-syringe"></i>
-                    <h4>Medicamentos</h4>
-                    <p>Administración de medicamentos y anticonceptivos.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- RESERVA -->
-<section id="reserva" class="section-padding">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            Solicita una Atención
-        </h2>
-
-        <form class="reservation-form">
-
-            <input type="text"
-                   class="form-control"
-                   placeholder="Nombre completo">
-
-            <input type="tel"
-                   class="form-control"
-                   placeholder="Teléfono">
-
-            <input type="email"
-                   class="form-control"
-                   placeholder="Correo">
-
-            <select class="form-select">
-                <option>Seleccione un servicio</option>
-                <option>Toma de Exámenes</option>
-                <option>Curaciones</option>
-                <option>Administración de Medicamentos</option>
-            </select>
-
-            <button class="btn btn-primary">
-                Solicitar Atención
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto" class="section-padding bg-light">
-
-    <div class="container text-center">
-
-        <h2 class="section-title">
-            Contacto
-        </h2>
-
-        <p>
-            📞 +56 9 XXXX XXXX
-        </p>
-
-        <p>
-            📧 contacto@pewmaclinichome.cl
-        </p>
-
-        <p>
-            🕒 Atención previa coordinación
-        </p>
-
-    </div>
-
-</section>
-
-<footer>
-
-    <div class="container text-center">
-
-        <p>
-            © 2026 PEWMA Clinic Home
-        </p>
-
-    </div>
-
-</footer>
-
-<script src="https://jsdelivr.net"></script>
-<script src="js/script.js"></script>
+</div>
 
 </body>
 </html>
