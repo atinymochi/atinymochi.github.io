@@ -1,615 +1,821 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-
-    <title>
-        PEWMA Clinic Home | Atención de Enfermería Domiciliaria en Santiago
-    </title>
-
-    <meta name="description"
-          content="PEWMA Clinic Home ofrece atención profesional de enfermería domiciliaria en Santiago. Curaciones, administración de medicamentos, manejo de dispositivos invasivos, toma de exámenes y más.">
-
-    <meta name="keywords"
-          content="enfermería domiciliaria, atención domiciliaria, curaciones, administración de medicamentos, toma de exámenes, Santiago">
-
-    <meta name="author"
-          content="PEWMA Clinic Home">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="format-detection"
-          content="telephone=no">
-
-    <!-- Favicon -->
-    <link rel="icon"
-          type="image/png"
-          href="images/favicon-16x16.png">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-          href="css/bootstrap.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="css/font-awesome.css">
-
-    <!-- Animations -->
-    <link rel="stylesheet"
-          href="css/animations.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet"
-          href="css/main.css">
-
-    <!-- Responsive CSS -->
-    <link rel="stylesheet"
-          href="css/custom-responsive.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEWMA Clinic Home – Salud domiciliaria profesional</title>
+  <meta name="description" content="Enfermería domiciliaria profesional en la Región Metropolitana. Curaciones, toma de exámenes, administración de medicamentos y más. Cuidamos tu salud donde más importa: tu hogar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a3a33;
+      background: #ffffff;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+ 
+    /* ── Palette ──────────────────────────────────────────── */
+    /* Aqua teal: #1dba8e (primary), #0e8f6b (dark), #d0f4ea (light), #ebfbf5 (faint) */
+    /* Neutral: #f7faf9, #e8f2ef, #5c7872, #1a3a33 */
+ 
+    /* ── Utilities ────────────────────────────────────────── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+ 
+    /* ── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #d0f4ea;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px;
+      background: #1dba8e;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 22px; height: 22px; }
+    .nav-logo-name {
+      font-size: 16px; font-weight: 500; color: #1a3a33; letter-spacing: -0.3px;
+    }
+    .nav-logo-name span { color: #1dba8e; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; color: #5c7872; transition: color .2s;
+    }
+    .nav-links a:hover { color: #1dba8e; }
+    .nav-cta {
+      background: #1dba8e; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500;
+      padding: 9px 20px; border-radius: 100px; border: none;
+      cursor: pointer; transition: background .2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { background: #0e8f6b; }
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-mobile { display: none; }
+ 
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(150deg, #ebfbf5 0%, #f7faf9 55%, #e8f7f2 100%);
+      padding: 80px 24px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: rgba(29,186,142,0.08);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; gap: 56px;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #d0f4ea; color: #0e8f6b;
+      font-size: 12px; font-weight: 500;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 24px; letter-spacing: 0.4px;
+    }
+    .hero-eyebrow svg { width: 14px; height: 14px; }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 400;
+      color: #1a3a33;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: #1dba8e;
+    }
+    .hero-sub {
+      font-size: 17px; color: #5c7872;
+      max-width: 480px; line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #1dba8e; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 500;
+      padding: 13px 28px; border-radius: 100px; border: none;
+      cursor: pointer; transition: background .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #0e8f6b; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: #1a3a33;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 500;
+      padding: 13px 28px; border-radius: 100px;
+      border: 1.5px solid #b0d8cf;
+      cursor: pointer; transition: border-color .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+    .btn-outline:hover { border-color: #1dba8e; transform: translateY(-1px); }
+    .hero-visual {
+      flex-shrink: 0; width: 260px; height: 260px;
+      background: #d0f4ea;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-visual svg { width: 110px; height: 110px; }
+    .hero-badge-float {
+      position: absolute; bottom: 16px; left: -20px;
+      background: white; border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 4px 20px rgba(29,186,142,0.18);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; color: #1a3a33;
+      white-space: nowrap;
+    }
+    .hero-badge-float .dot { width: 8px; height: 8px; border-radius: 50%; background: #1dba8e; }
+ 
+    /* ── TRUST BAR ────────────────────────────────────────── */
+    .trust-bar {
+      background: #1a3a33;
+      padding: 24px;
+    }
+    .trust-bar-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .trust-icon {
+      width: 36px; height: 36px;
+      background: rgba(29,186,142,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-icon svg { width: 18px; height: 18px; stroke: #1dba8e; }
+    .trust-label { font-size: 13px; color: #7dbfb0; }
+    .trust-label strong { display: block; color: #fff; font-size: 14px; font-weight: 500; }
+ 
+    /* ── SECTION COMMON ───────────────────────────────────── */
+    .section-eyebrow {
+      font-size: 12px; font-weight: 500; letter-spacing: 1.2px;
+      color: #1dba8e; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400; color: #1a3a33;
+      line-height: 1.2; letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
+    .section-lead {
+      font-size: 16px; color: #5c7872; max-width: 560px;
+      line-height: 1.75; margin-bottom: 48px;
+    }
+ 
+    /* ── SERVICIOS ────────────────────────────────────────── */
+    #servicios {
+      padding: 88px 24px;
+      background: #fff;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: #f7faf9;
+      border: 1px solid #d0f4ea;
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(29,186,142,0.12);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: #d0f4ea;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .service-icon svg { width: 24px; height: 24px; stroke: #0e8f6b; }
+    .service-name {
+      font-size: 15px; font-weight: 500; color: #1a3a33;
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 13px; color: #5c7872; line-height: 1.6;
+    }
+ 
+    /* ── NOSOTROS ─────────────────────────────────────────── */
+    #nosotros {
+      padding: 88px 24px;
+      background: #ebfbf5;
+    }
+    .about-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .about-mv { display: flex; flex-direction: column; gap: 32px; }
+    .mv-block {}
+    .mv-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 1px;
+      text-transform: uppercase; color: #1dba8e; margin-bottom: 6px;
+    }
+    .mv-text {
+      font-size: 15px; color: #1a3a33; line-height: 1.75;
+    }
+    .mv-text strong { color: #0e8f6b; font-weight: 500; }
+    .values-grid { display: flex; flex-direction: column; gap: 14px; }
+    .value-row {
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .value-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #1dba8e; flex-shrink: 0; margin-top: 8px;
+    }
+    .value-content {}
+    .value-name { font-size: 14px; font-weight: 500; color: #1a3a33; }
+    .value-desc { font-size: 13px; color: #5c7872; line-height: 1.5; }
+ 
+    /* ── ESLOGAN BAND ─────────────────────────────────────── */
+    .slogan-band {
+      background: #1dba8e;
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .slogan-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 4vw, 44px);
+      font-style: italic;
+      color: #fff;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .slogan-sub {
+      font-size: 15px; color: rgba(255,255,255,0.75); margin-top: 12px;
+    }
+ 
+    /* ── CONTACTO ─────────────────────────────────────────── */
+    #contacto {
+      padding: 88px 24px;
+      background: #fff;
+    }
+    .contact-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .contact-info {}
+    .contact-methods { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .contact-method {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: #f7faf9;
+      border: 1px solid #d0f4ea;
+      border-radius: 12px;
+      font-size: 14px; color: #1a3a33;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .contact-method:hover { border-color: #1dba8e; background: #ebfbf5; }
+    .contact-method-icon {
+      width: 38px; height: 38px;
+      background: #d0f4ea; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-method-icon svg { width: 18px; height: 18px; stroke: #0e8f6b; }
+    .contact-method-label { font-size: 11px; color: #7dbfb0; display: block; margin-bottom: 1px; }
+    .contact-method-value { font-size: 14px; font-weight: 500; color: #1a3a33; }
+ 
+    .contact-form-card {
+      background: #f7faf9;
+      border: 1px solid #d0f4ea;
+      border-radius: 20px;
+      padding: 36px 32px;
+    }
+    .contact-form-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; font-weight: 400; color: #1a3a33;
+      margin-bottom: 6px;
+    }
+    .contact-form-card p {
+      font-size: 14px; color: #5c7872; margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 12px; font-weight: 500;
+      color: #5c7872; margin-bottom: 6px; letter-spacing: 0.3px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #b0d8cf;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: #1a3a33;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: #1dba8e; }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; background: #1dba8e; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 500;
+      padding: 14px; border-radius: 100px; border: none;
+      cursor: pointer; transition: background .2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: #0e8f6b; }
+ 
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: #1a3a33;
+      padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-mark {
+      width: 34px; height: 34px; background: #1dba8e;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 20px; height: 20px; }
+    .footer-brand-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .footer-brand-tagline { font-size: 12px; color: #7dbfb0; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: #7dbfb0; transition: color .2s; }
+    .footer-links a:hover { color: #1dba8e; }
+    .footer-copy { font-size: 12px; color: #4a7068; width: 100%; text-align: center; margin-top: 8px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.07); }
+ 
+    /* ── MOBILE ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-menu-btn { display: block; }
+      .nav-mobile.open {
+        display: flex; flex-direction: column;
+        background: #fff; border-top: 1px solid #d0f4ea;
+        padding: 16px 24px; gap: 16px;
+      }
+      .nav-mobile.open a { font-size: 15px; color: #1a3a33; }
+      .nav-mobile.open .nav-cta-mobile {
+        background: #1dba8e; color: #fff;
+        padding: 12px; border-radius: 100px; text-align: center; font-weight: 500;
+      }
+ 
+      .hero-inner { flex-direction: column; text-align: center; gap: 36px; }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { width: 180px; height: 180px; }
+      .hero-badge-float { left: 0; }
+ 
+      .trust-bar-inner { flex-direction: column; gap: 20px; align-items: flex-start; padding-left: 8px; }
+ 
+      .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+ 
+      .footer-inner { justify-content: center; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+ 
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="header-top">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <p class="top-message">
-                    Cuidamos tu salud donde más importa: tu hogar.
-                </p>
-            </div>
-            <div class="col-md-6 text-end">
-                <p class="top-contact">
-                    <i class="fa fa-whatsapp"></i>
-                    <a href="https://wa.me/56988201833"
-                       target="_blank">
-                        +56 9 8820 1833
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<header id="header">
-    <div class="container">
-
-        <!-- Website Logo -->
-        <div class="logo clearfix">
-            <a href="index.html">
-                <img src="images/logo.jpeg" alt="PEWMA Clinic Home">            
-            </a>        
-        </div>
-
-        <!-- Main Navigation -->
-        <nav class="main-menu">
-            <ul class="header-nav clearfix" id="menu-main-menu">
-                <li>
-                    <a href="#inicio">Inicio</a>
-                </li>
-                <li>
-                    <a href="#servicios">Servicios</a>
-                </li>
-                <li>
-                    <a href="#nosotros">Nosotros</a>
-                </li>
-                <li>
-                    <a href="#cobertura">Cobertura</a>
-                </li>
-                <li>
-                    <a href="#reserva">Reserva</a>
-                </li>
-                <li>
-                    <a href="#contacto">Contacto</a>
-                </li>
-            </ul>
-        </nav>
-
-    <div id="responsive-menu-container"></div>
-    <div class="header-whatsapp">
-    
-        <a href="https://wa.me/56988201833"
-           target="_blank">
-            <i class="fa fa-whatsapp"></i>
-            WhatsApp
+ 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="PEWMA Clinic Home – inicio">
+      <div class="nav-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="9" y="2" width="4" height="18" rx="2" fill="white"/>
+          <rect x="2" y="9" width="18" height="4" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="nav-logo-name">PEWMA <span>Clinic Home</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/56988201833?text=Hola%2C%20quisiera%20solicitar%20atenci%C3%B3n%20domiciliaria" target="_blank" rel="noopener" class="nav-cta" aria-label="Solicitar atención vía WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Solicitar atención
+    </a>
+    <button class="nav-menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a3a33" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-mobile" role="navigation" aria-label="Menú móvil">
+    <a href="#servicios" onclick="this.closest('.nav-mobile').classList.remove('open')">Servicios</a>
+    <a href="#nosotros" onclick="this.closest('.nav-mobile').classList.remove('open')">Nosotros</a>
+    <a href="#contacto" onclick="this.closest('.nav-mobile').classList.remove('open')">Contacto</a>
+    <a href="https://wa.me/56988201833?text=Hola%2C%20quisiera%20solicitar%20atenci%C3%B3n%20domiciliaria" target="_blank" class="nav-cta-mobile">Solicitar atención por WhatsApp</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-inner container">
+    <div class="hero-text">
+      <span class="hero-eyebrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Región Metropolitana
+      </span>
+      <h1 id="hero-heading" class="hero-title">
+        Salud profesional,<br>
+        <em>en la comodidad<br>de tu hogar.</em>
+      </h1>
+      <p class="hero-sub">Enfermería domiciliaria integral con personal certificado. Curaciones, toma de exámenes, administración de medicamentos y más, sin que tengas que salir de casa.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/56988201833?text=Hola%2C%20quisiera%20solicitar%20atenci%C3%B3n%20domiciliaria" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Solicitar atención
         </a>
-    </div>
-        <div id="responsive-menu-container"></div>
-    </div>
-</header>
-
-<section id="inicio" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="hero-tag">
-                    Atención de Enfermería Domiciliaria
-                </span>
-                <h1>
-                    Cuidamos tu salud,
-                    acompañamos tus sueños
-                </h1>
-                <p>
-                    Atención profesional, segura y humanizada
-                    en la comodidad de tu hogar.
-                    Brindamos cuidados personalizados para
-                    pacientes y familias en Santiago.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#reserva" class="btn-primary">
-                        Solicitar Atención
-                    </a>
-                    <a href="https://wa.me/56988201833"
-                       target="_blank"
-                       class="btn-secondary">
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/enfermera.png"
-                     alt="Atención de enfermería domiciliaria">
-            </div>
-        </div>
-    </div>
-</section>
-    
-<section class="benefits">
-    <div class="container">
-        <div class="benefit">
-            🏠 Atención en domicilio
-        </div>
-        <div class="benefit">
-            ❤️ Atención humanizada
-        </div>
-        <div class="benefit">
-            👩‍⚕️ Profesionales capacitados
-        </div>
-        <div class="benefit">
-            🛡️ Seguridad y confianza
-        </div>
-    </div>
-</section>
-
-<div class="features-var-three clearfix">
-    <div class="container">
-        <div class="slogan-section clearfix">
-            <h2>
-            Nuestros <span>Servicios</span>
-            </h2>
-            <p>
-            Brindamos atención de enfermería domiciliaria integral, segura y humanizada,
-            acercando servicios de salud de calidad al hogar de nuestros pacientes.
-            </p>
-        </div>
-        <div class="row">
-            <div class="visible-lg clearfix"></div>
-            <div class="visible-md clearfix"></div>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Toma de Exámenes Domiciliarios</h5>
-                        <p>Obtención de muestras y controles de salud
-                            en la comodidad del hogar, evitando traslados 
-                            innecesarios.
-                        </p>
-                    </div>
-                </div>
-                </section>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Curaciones Simples y Avanzadas</h5>
-                        <p>Cuidados especializados para heridas,
-                            favoreciendo una recuperación segura
-                            y supervisada.
-                        </p>
-                    </div>
-                </div>
-                </section>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Administración de Medicamentos</h5>
-                        <p>Administración de tratamientos
-                            endovenosos, intramusculares y
-                            subcutáneos por profesionales capacitados.
-                        </p>
-                    </div>
-                </div>
-                </section>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Manejo de Dispositivos Invasivos</h5>
-                        <p>Traqueostomía, gastrostomía,
-                            sonda nasogástrica, sonda Foley,
-                            ostomías y drenajes.
-                        </p>
-                    </div>
-                </div>
-                </section>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Educación para Pacientes y Cuidadores</h5>
-                        <p>Orientación y capacitación en el manejo
-                            de dispositivos invasivos y administración
-                            de medicamentos.
-                        </p>
-                    </div>
-                </div>
-                </section>
-                <section class="single-feature clearfix col-md-4 col-sm-6 ">
-                <div class="row">
-                    <div class="col-sm-3 text-center feature-icon">
-                        <i class="fa fa-flask fa-3x"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h5>Administración de Anticonceptivos</h5>
-                        <p>Aplicación profesional y segura,
-                            respetando protocolos clínicos
-                            y recomendaciones médicas.
-                        </p>
-                    </div>
-                </div>
-                </section>
-            <div class="text-center service-footer">
-                <p>
-                Atención profesional, segura y humanizada
-                en la comodidad de tu hogar.
-                </p>
-            </div>
-            <div class="visible-lg clearfix"></div>
-            <div class="visible-md clearfix"></div>
-        </div>
-    </div>
-</div>
-
-<div class="home-doctors doctors-var-two clearfix">
-    <div class="container">
-        <div class="slogan-section animated fadeInUp clearfix">
-            <h2>¿Por qué elegir <span>PEWMA Clinic Home</span>?</h2>
-            <p>
-            Nos comprometemos a brindar atención profesional, segura y humanizada,
-            centrada en las necesidades de cada paciente y su familia.
-            </p>
+        <a href="#servicios" class="btn-outline">
+          Ver servicios
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 text-center">
-                <div class="common-doctor animated fadeInUp clearfix">
-                    <div class="text-content">
-                        <h5>Atención Humanizada</h5>
-                        <p>
-                        Cuidamos a cada persona con respeto,
-                        empatía y dignidad, promoviendo una
-                        atención cercana y personalizada.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 text-center">
-                <div class="common-doctor animated fadeInUp clearfix">
-                    <div class="text-content">
-                        <h5>Profesionales Capacitados</h5>
-                        <p>
-                        Nuestro compromiso con la excelencia
-                        nos impulsa a mantener altos estándares
-                        de calidad y actualización profesional.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="visible-sm clearfix margin-gap"></div>
-
-            <div class="col-md-3 col-sm-6 text-center">
-                <div class="common-doctor animated fadeInUp clearfix">
-                    <div class="text-content">
-                        <h5>Atención en el Hogar</h5>
-                        <p>
-                        Llevamos servicios de salud de calidad
-                        hasta la comodidad de su hogar,
-                        evitando traslados innecesarios.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 text-center">
-                <div class="common-doctor animated fadeInUp clearfix">
-                    <div class="text-content">
-                        <h5>Confianza y Seguridad</h5>
-                        <p>
-                        Construimos relaciones basadas en
-                        la transparencia, el respeto y el
-                        bienestar de nuestros pacientes.
-                        </p>
-                    </div>
-                </div>
-            </div>    
-            <div class="visible-sm clearfix margin-gap"></div>
-        </div>
     </div>
-</div>
-
-<!--medical services start-->
-<div class="home-services clearfix">
-    <div class="container">
-        <div class="slogan-section animated fadeInUp clearfix ae-animation-fadeInUp">
-            <h2>Servicios Domiciliarios <span>Profesionales</span></h2>
-            <p> Nuestras enfermeras son profesionales calificadas y brindan soluciones practicas sobre su tratamiento ayudándolo durante todo el proceso de recuperación.</p>
-        </div>
-
-        <div class="tab-main animated fadeInDown clearfix ae-animation-fadeInDown">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="tab-title active">
-                        <h6>Misión</h6>
-                    </div>
-                    <div class="tab-title">
-                        <h6>Visión</h6>
-                    </div>
-                    <div class="tab-title">
-                        <h6>Humanización</h6>
-                    </div>
-                    <div class="tab-title">
-                        <h6>Compromiso y excelencia</h6>
-                    </div>
-                    <div class="tab-title">
-                        <h6>Confianza y accesibilidad</h6>
-                    </div>
-                    
-                </div>
-                <div class="col-sm-8">
-                    <div class="tab-content">
-                        <article class="content clearfix hentry">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Misión</h5>
-                                    <p align="justify">
-                                    Brindar atención de enfermería domiciliaria integral,
-                                    segura y humanizada, acercando servicios de salud de
-                                    calidad al hogar de nuestros pacientes.
-                                    
-                                    Nos comprometemos a promover el bienestar, la recuperación
-                                    y la continuidad de los cuidados mediante una atención
-                                    profesional, personalizada y centrada en las necesidades
-                                    de cada persona y su familia.
-                                    </p>
-                              </div>
-                            </div>
-                        </article>
-                        <article class="content clearfix hentry">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Visión</h5>
-                                    <p align="justify">
-                                    Ser una empresa líder y referente en atención de
-                                    enfermería domiciliaria, reconocida por la excelencia
-                                    de sus servicios, la calidad humana de su equipo y
-                                    su compromiso con el cuidado integral de las personas.
-                                    
-                                    Buscamos contribuir a mejorar el acceso a la salud y
-                                    la calidad de vida de nuestros pacientes en la comodidad
-                                    de su hogar.
-                                    </p>      
-                              </div>
-                            </div>
-                        </article>
-                        <article class="content clearfix hentry">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Humanización</h5>
-                                    <p align="justify">
-                                    Cuidamos a cada persona con respeto,
-                                    empatía y dignidad.
-                                    
-                                    Entendemos que cada paciente es único,
-                                    por lo que entregamos una atención cercana,
-                                    personalizada y centrada en sus necesidades.
-                                    </p>
-                              </div>
-                            </div>
-                        </article>
-                        <article class="content clearfix hentry">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Compromiso y Excelencia</h5>
-                                    <p align="justify">
-                                    Entregamos una atención responsable,
-                                    centrada en el bienestar de nuestros pacientes.
-                                    
-                                    Mantenemos altos estándares de calidad,
-                                    actualización profesional y mejora continua
-                                    para ofrecer cuidados seguros y efectivos.
-                                    </p>
-                              </div>
-                            </div>
-                        </article>
-                        <article class="content clearfix hentry">
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Confianza y Accesibilidad</h5>
-                                    <p align="justify">
-                                    Construimos relaciones basadas en la transparencia,
-                                    el respeto y la confianza.
-                                    
-                                    Además, facilitamos el acceso a servicios de salud
-                                    de calidad directamente en el hogar de nuestros pacientes.
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--page footer-->
-<footer id="main-footer" class="site-footer clearfix">
-    <div class="container">
-        <div class="row">
-            <!--about widget-->
-            <div class="col-md-3 col-sm-6">
-                <section  class="widget animated fadeInLeft">
-                    <h3 class="title">Enfermeras a tu Domicilio</h3>
-                    <div class="textwidget">
-                        <p align="justify">Equipo de enfermeras con atención domiciliaria acreditados en la Superintendencia de Salud.</p>
-                        <p align="justify">Ofrecemos las mejores alternativas para que su recuperación sea en su hogar, Determinamos el valor de nuestros servicios pensando en nuestros clientes y sus necesidades. Confíe en nosotros, estamos muy cerca de usted.</p>
-                  </div>
-                </section>
-            </div>
-            <!--general services-->
-            <div class="col-md-3 col-sm-6  ">
-              <section class="widget animated fadeInLeft ae-animation-fadeInLeft">
-                <h3 class="title">Algunos Procedimientos</h3>
-                <ul>
-                  <li><a href="inyecciones.html">Inyecciones</a></li>
-                  <li><a href="curacion-avanzada.html">Curación Avanzada</a></li>
-                  <li><a href="ulceras-presion.html">Úlceras por Presión</a></li>
-                  <li><a href="pie-diabetico.html">Pié Diabético</a></li>
-                  <li><a href="sonda-foley.html">Sonda Foley</a></li>
-                  <li><a href="sonda-nasogastrica.html">Sonda Nasogástrica</a></li>
-                </ul>
-              </section>
-            </div>
-          <div class="clearfix visible-sm"></div>
-
-            <!--contacto agenda-->
-            <div class="col-md-3 col-sm-6  ">
-              <section  class="widget animated fadeInLeft">
-                <h3 class="title">Contáctanos</h3>
-                  <li>
-                        Cobertura:
-                        <strong>Santiago y alrededores</strong>
-                  </li>
-                  <li>
-                        Email:
-                        <strong>Próximamente</strong>
-                  </li>
-                  <li>
-                        WhatsApp:
-                        <a href="https://wa.me/56988201833">
-                            <strong>+56 9 8820 1833</strong>
-                        </a>
-                  </li>
-                </ul>
-              </section>
-            </div>
-        <!--subscription form-->
-            <div class="col-md-3 col-sm-6  ">
-              <section class="widget animated fadeInLeft ae-animation-fadeInLeft">
-                <h3 class="title">Nuestros Valores</h3>
-                  <ul>
-                        <li>Humanización</li>
-                        <li>Compromiso</li>
-                        <li>Excelencia</li>
-                        <li>Confianza</li>
-                        <li>Vocación de Servicio</li>
-                        <li>Accesibilidad</li>
-                  </ul>
-              </section>
-            </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="55" cy="55" r="44" fill="#1dba8e" opacity="0.15"/>
+        <rect x="47" y="22" width="16" height="66" rx="8" fill="#1dba8e"/>
+        <rect x="22" y="47" width="66" height="16" rx="8" fill="#1dba8e"/>
+      </svg>
+      <div class="hero-badge-float">
+        <span class="dot"></span>
+        Personal certificado
       </div>
-        <div class="footer-bottom animated fadeInDown clearfix">
-            <div class="row">
-              <div class="col-sm-7">
-                <p>
-                    &copy; 2026 PEWMA Clinic Home.
-                    Todos los derechos reservados.
-                </p>
-              </div>
-              <!--footer social icons-->
-              <div class="col-sm-5 clearfix">
-                <ul class="footer-social-nav">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </li>
-                </ul>
-              </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- TRUST BAR -->
+<div class="trust-bar" role="list" aria-label="Nuestros compromisos">
+  <div class="trust-bar-inner">
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="trust-label"><strong>Enfermeras/os titulados</strong>Profesionales con registro y experiencia clínica</div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <div class="trust-label"><strong>Respuesta rápida</strong>Coordinamos tu visita en el menor tiempo posible</div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="trust-label"><strong>Atención en tu hogar</strong>Sin traslados, sin filas, en la comodidad de casa</div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <div class="trust-label"><strong>Atención humanizada</strong>Cuidado con empatía, respeto y dignidad</div>
+    </div>
+  </div>
+</div>
+ 
+<!-- SERVICIOS -->
+<section id="servicios" aria-labelledby="servicios-heading">
+  <div class="container">
+    <p class="section-eyebrow">Nuestros servicios</p>
+    <h2 id="servicios-heading" class="section-title">Cuidado integral<br>a domicilio</h2>
+    <p class="section-lead">Llevamos atención de enfermería profesional hasta tu hogar, con los más altos estándares clínicos y un trato humano y cálido en cada visita.</p>
+    <div class="services-grid">
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/>
+            <path d="M19 3v4"/><path d="M17 5h4"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Toma de exámenes domiciliarios</h3>
+        <p class="service-desc">Extracción de muestras de sangre, orina y otros exámenes de laboratorio en la comodidad de tu hogar.</p>
+      </article>
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Manejo de dispositivos invasivos</h3>
+        <p class="service-desc">Instalación y cuidado de traqueotomía, gastrostomía, sonda nasogástrica, sonda Foley, ostomías y drenajes.</p>
+      </article>
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
+            <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+            <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
+            <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
+            <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
+            <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+            <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/>
+            <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Curaciones simples y avanzadas</h3>
+        <p class="service-desc">Curación de heridas agudas y crónicas, úlceras por presión, heridas quirúrgicas, retiro de puntos y más.</p>
+      </article>
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Educación en salud</h3>
+        <p class="service-desc">Capacitación a pacientes y familias en el manejo de dispositivos invasivos y en la administración correcta de medicamentos.</p>
+      </article>
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Administración de medicamentos</h3>
+        <p class="service-desc">Aplicación de medicamentos endovenosos, intramusculares y subcutáneos con técnica estéril y protocolo seguro.</p>
+      </article>
+ 
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <h3 class="service-name">Administración de anticonceptivos</h3>
+        <p class="service-desc">Aplicación de anticonceptivos inyectables con seguimiento personalizado y orientación profesional.</p>
+      </article>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- NOSOTROS -->
+<section id="nosotros" aria-labelledby="nosotros-heading">
+  <div class="about-inner">
+    <div>
+      <p class="section-eyebrow">Quiénes somos</p>
+      <h2 id="nosotros-heading" class="section-title">Cuidamos con<br>propósito y vocación</h2>
+      <div class="about-mv">
+        <div class="mv-block">
+          <p class="mv-label">Nuestra misión</p>
+          <p class="mv-text">Brindar atención de enfermería domiciliaria integral, segura y humanizada, acercando servicios de salud de calidad al hogar de nuestros pacientes. Nos comprometemos a promover el bienestar, la recuperación y la continuidad de los cuidados mediante una atención <strong>profesional, personalizada y centrada en las necesidades de cada persona y su familia.</strong></p>
+        </div>
+        <div class="mv-block">
+          <p class="mv-label">Nuestra visión</p>
+          <p class="mv-text">Ser una empresa líder y referente en atención de enfermería domiciliaria, reconocida por la <strong>excelencia de sus servicios</strong> y la calidad humana de su equipo, contribuyendo a mejorar el acceso a la salud y la calidad de vida de nuestros pacientes.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="section-eyebrow" style="margin-bottom: 20px;">Nuestros valores</p>
+      <div class="values-grid">
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Humanización</p>
+            <p class="value-desc">Cuidamos a cada persona con respeto, empatía y dignidad.</p>
           </div>
         </div>
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Compromiso</p>
+            <p class="value-desc">Atención responsable y centrada en las necesidades de cada paciente.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Excelencia</p>
+            <p class="value-desc">Altos estándares de calidad y actualización profesional constante.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Confianza</p>
+            <p class="value-desc">Relaciones basadas en la transparencia y el respeto mutuo.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Vocación de servicio</p>
+            <p class="value-desc">El bienestar de nuestros pacientes en el centro de todo lo que hacemos.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot" aria-hidden="true"></div>
+          <div class="value-content">
+            <p class="value-name">Accesibilidad</p>
+            <p class="value-desc">Facilitamos el acceso a salud de calidad en la comodidad del hogar.</p>
+          </div>
+        </div>
+      </div>
     </div>
-</footer>
-
-<a href="#top" id="scroll-top"></a>
-
-<script type='text/javascript' id='quick-js'></script>
-<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
-<script type='text/javascript' src='js/bootstrap.min.js'></script>
-<script type='text/javascript' src='js/jquery.flexslider-min.js'></script>
-<script type='text/javascript' src='js/jquery.swipebox.min.js'></script>
-<script type='text/javascript' src='js/jquery.isotope.min.js'></script>
-<script type='text/javascript' src='js/jquery.appear.js'></script>
-<script type='text/javascript' src='js/jquery.ui.core.min.js'></script>
-<script type='text/javascript' src='js/jquery.ui.datepicker.min.js'></script>
-<script type='text/javascript' src='js/jquery.validate.min.js'></script>
-<script type='text/javascript' src='js/jquery.form.js'></script>
-<script type='text/javascript' src='js/jquery.autosize.min.js'></script>
-<script type='text/javascript' src='js/jquery.meanmenu.min.js'></script>
-<script type='text/javascript' src='js/jquery.velocity.min.js'></script>
-<script type='text/javascript' src='js/jquery-twitterFetcher.js'></script>
-<script type='text/javascript' src='js/respond.min.js'></script>
-<script type='text/javascript' src='js/jquery-migrate-1.2.1.min.js'></script>
-<script type='text/javascript' src='js/custom.js'></script>
-
-<div class="btn-whatsapp">
-<a href="https://api.whatsapp.com/send?phone=56979617237&text=&source=&data=&app_absent=">
-<img src="https://www.medicosatudomicilio.cl/imagenes/btn_whatsapp.png" alt="">
-</a>
+  </div>
+</section>
+ 
+<!-- ESLOGAN BAND -->
+<div class="slogan-band" aria-label="Eslogan de PEWMA Clinic Home">
+  <p class="slogan-text">"Cuidamos tu salud donde más importa: tu hogar."</p>
+  <p class="slogan-sub">PEWMA Clinic Home · Región Metropolitana</p>
 </div>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162091189-1"></script>
+ 
+<!-- CONTACTO -->
+<section id="contacto" aria-labelledby="contacto-heading">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="section-eyebrow">Contáctanos</p>
+        <h2 id="contacto-heading" class="section-title">¿Necesitas atención?<br>Estamos aquí.</h2>
+        <p class="section-lead" style="margin-bottom: 0;">Escríbenos por WhatsApp o completa el formulario. Coordinamos tu visita a la brevedad y sin complicaciones.</p>
+        <div class="contact-methods">
+          <a href="https://wa.me/56988201833?text=Hola%2C%20quisiera%20solicitar%20atenci%C3%B3n%20domiciliaria" target="_blank" rel="noopener" class="contact-method" aria-label="Contactar por WhatsApp al +56 9 8820 1833">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="#0e8f6b" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="contact-method-label">WhatsApp</span>
+              <span class="contact-method-value">+56 9 8820 1833</span>
+            </div>
+          </a>
+          <div class="contact-method">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </div>
+            <div>
+              <span class="contact-method-label">Cobertura</span>
+              <span class="contact-method-value">Región Metropolitana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="contact-form-card">
+        <h3>Solicita una visita</h3>
+        <p>Te contactamos para coordinar la atención a domicilio.</p>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX" required autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio que necesitas</label>
+            <select id="servicio" name="servicio" required>
+              <option value="" disabled selected>Selecciona un servicio</option>
+              <option>Toma de exámenes domiciliarios</option>
+              <option>Manejo de dispositivos invasivos</option>
+              <option>Curaciones simples o avanzadas</option>
+              <option>Educación en salud</option>
+              <option>Administración de medicamentos</option>
+              <option>Administración de anticonceptivos</option>
+              <option>Otro / No estoy seguro/a</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Cuéntanos más (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente lo que necesitas..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submit-btn">Enviar solicitud</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 22 22" fill="none">
+          <rect x="9" y="2" width="4" height="18" rx="2" fill="white"/>
+          <rect x="2" y="9" width="18" height="4" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <div>
+        <p class="footer-brand-name">PEWMA Clinic Home</p>
+        <p class="footer-brand-tagline">Salud domiciliaria profesional</p>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://wa.me/56988201833" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </div>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 PEWMA Clinic Home · Región Metropolitana, Chile · Todos los derechos reservados</p>
+  </div>
+</footer>
+ 
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-162091189-1');
+  function handleSubmit(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const servicio = document.getElementById('servicio').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+ 
+    const texto = encodeURIComponent(
+      `Hola, soy ${nombre}.\nNecesito: ${servicio}.\nTeléfono: ${telefono}` +
+      (mensaje ? `\nMás detalles: ${mensaje}` : '')
+    );
+ 
+    window.open(`https://wa.me/56988201833?text=${texto}`, '_blank');
+ 
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = '¡Solicitud enviada!';
+    btn.style.background = '#0e8f6b';
+    setTimeout(() => {
+      btn.textContent = 'Enviar solicitud';
+      btn.style.background = '';
+      document.getElementById('contact-form').reset();
+    }, 3000);
+  }
 </script>
-    
+ 
 </body>
 </html>
